@@ -27,7 +27,7 @@ int main()
 	int krawedzie;
 	int testy;
 
-	int tabWierzcholki[100][100];
+	int tabWag[100][100];
 	int tabOdleglosci[100];
 	tabOdleglosci[0] = 0;
 	
@@ -42,9 +42,9 @@ int main()
 				int value;
 				cin >> value;
 				if (value != 0)
-					tabWierzcholki[j][i] = value;
+					tabWag[j][i] = value;
 				else
-					tabWierzcholki[j][i] = nieskonczonosc;
+					tabWag[j][i] = nieskonczonosc;
 			}
 		}
 
@@ -57,8 +57,8 @@ int main()
 			for (int j = 0; j < wierzcholki; j++)
 				for (int i = 0; i < wierzcholki; i++)
 				{
-					if ((tabOdleglosci[j] + tabWierzcholki[j][i] < tabOdleglosci[i]) && tabOdleglosci[j] != nieskonczonosc)
-						tabOdleglosci[i] = tabOdleglosci[j] + tabWierzcholki[j][i];
+					if ((tabOdleglosci[j] + tabWag[j][i] < tabOdleglosci[i]) && tabWag[j][i] != nieskonczonosc)
+						tabOdleglosci[i] = tabOdleglosci[j] + tabWag[j][i];
 				}
 
 			//wypisz
