@@ -57,7 +57,7 @@ int main()
 			for (int j = 0; j < wierzcholki; j++)
 				for (int i = 0; i < wierzcholki; i++)
 				{
-					if (tabOdleglosci[j] + tabWierzcholki[j][i] < tabOdleglosci[i])
+					if ((tabOdleglosci[j] + tabWierzcholki[j][i] < tabOdleglosci[i]) && tabOdleglosci[j] != nieskonczonosc)
 						tabOdleglosci[i] = tabOdleglosci[j] + tabWierzcholki[j][i];
 				}
 
