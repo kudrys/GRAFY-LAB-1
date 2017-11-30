@@ -32,7 +32,7 @@ int main()
 	tabOdleglosci[0] = 0;
 	
 	cin >> liczbaTestow;
-	for (int i = 0; i < liczbaTestow; i++) {
+	for (int testCount = 0; testCount < liczbaTestow; testCount++) {
 
 		cin >> wierzcholki;
 		for (int j = 0; j < wierzcholki; j++)
@@ -49,10 +49,10 @@ int main()
 		}
 
 		//fill with infinity
-		for (int i = 1; i < wierzcholki; i++)
-			tabOdleglosci[i] = nieskonczonosc;
+		for (int odlCount = 1; odlCount < wierzcholki; odlCount++)
+			tabOdleglosci[odlCount] = nieskonczonosc;
 
-		for (int i = 1; i < wierzcholki; i++)
+		for (int lineCount = 1; lineCount < wierzcholki; lineCount++)
 		{
 			for (int j = 0; j < wierzcholki; j++)
 				for (int i = 0; i < wierzcholki; i++)
@@ -62,9 +62,9 @@ int main()
 				}
 
 			//wypisz
-			for (int i = 0; i < wierzcholki; i++)
-				if (tabOdleglosci[i] < nieskonczonosc)
-					cout << tabOdleglosci[i] << " ";
+			for (int wypiszCount = 0; wypiszCount < wierzcholki; wypiszCount++)
+				if (tabOdleglosci[wypiszCount] < nieskonczonosc)
+					cout << tabOdleglosci[wypiszCount] << " ";
 				else
 					cout << 0 << " ";
 			//next loop run
