@@ -12,7 +12,7 @@
 //			  d[v] = d[u] + waga((u, v));
 //
 
-#pragma warning (disable : 4996)
+//#pragma warning (disable : 4996)
 #include <iostream>
 #include <vector>
 #define nieskonczonosc 100000
@@ -21,7 +21,7 @@ using namespace std;
 
 int main()
 {
-	freopen("ConsoleOutput.txt", "w", stdout);
+	//freopen("ConsoleOutput.txt", "w", stdout);
 	int liczbaTestow;
 	int wierzcholki;
 	int krawedzie;
@@ -29,11 +29,11 @@ int main()
 
 	int tabWag[100][100];
 	int tabOdleglosci[100];
-	tabOdleglosci[0] = 0;
 	
 	cin >> liczbaTestow;
 	for (int testCount = 0; testCount < liczbaTestow; testCount++) {
 
+		//cout <<"test nr "<< testCount<<endl;
 		cin >> wierzcholki;
 		for (int j = 0; j < wierzcholki; j++)
 		{
@@ -41,13 +41,14 @@ int main()
 			{
 				int value;
 				cin >> value;
-				if (value != 0)
+				//if (value != 0)
 					tabWag[j][i] = value;
-				else
-					tabWag[j][i] = nieskonczonosc;
+				//else
+				//	tabWag[j][i] = nieskonczonosc;
 			}
 		}
 
+		tabOdleglosci[0] = 0;
 		//fill with infinity
 		for (int odlCount = 1; odlCount < wierzcholki; odlCount++)
 			tabOdleglosci[odlCount] = nieskonczonosc;
@@ -57,7 +58,7 @@ int main()
 			for (int j = 0; j < wierzcholki; j++)
 				for (int i = 0; i < wierzcholki; i++)
 				{
-					if ((tabOdleglosci[j] + tabWag[j][i] < tabOdleglosci[i]) && tabWag[j][i] != nieskonczonosc)
+					if ((tabOdleglosci[j] + tabWag[j][i] < tabOdleglosci[i]) && tabWag[j][i] && (tabOdleglosci[i] !=nieskonczonosc || tabOdleglosci[j] != nieskonczonosc))// != nieskonczonosc)
 						tabOdleglosci[i] = tabOdleglosci[j] + tabWag[j][i];
 				}
 
